@@ -1,11 +1,18 @@
+<div>
+  <input type="text"[(ngModel)]="city" (keyup.enter)="onSearch()" placeholder="Busque uma Cidade">
+  <button (click)="onSearch()">Pesquisar</button>
+  <nav>
+    <a routerLink="/favorites">Ir aos favoritos</a>
+  </nav>
+</div>
+
+<!-- Mensagem de erro -->
+<div *ngIf="errorMessage">
+  <p>{{ errorMessage }}</p>
+</div>
+
 <div *ngIf="weatherData">
   <h1>Clima Atual</h1>
-
-  <div>
-    <input type="text" placeholder="Busque uma Cidade">
-    <button>Pesquisar</button>
-  </div>
-
   <h3>{{ weatherData.name }}</h3>
   <p>Temperatura: {{ weatherData.main.temp }}°C</p>
   <p>Umidade: {{ weatherData.main.humidity }}%</p>
