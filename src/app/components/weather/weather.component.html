@@ -1,0 +1,15 @@
+<div *ngIf="weatherData">
+  <h1>Clima Atual</h1>
+
+  <div>
+    <input type="text" placeholder="Busque uma Cidade">
+    <button>Pesquisar</button>
+  </div>
+
+  <h3>{{ weatherData.name }}</h3>
+  <p>Temperatura: {{ weatherData.main.temp }}°C</p>
+  <p>Umidade: {{ weatherData.main.humidity }}%</p>
+  <p>Vento: {{ weatherData.wind.speed }}m/s</p>
+  <p>Previsão de chuva: {{ weatherData.weather[0].description }}</p>
+  <!--<p *ngIf="weatherData.alerts">Alertas: {{ weatherData.alerts[0].description }}</p> -->
+</div>
