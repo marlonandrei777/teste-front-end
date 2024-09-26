@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { WeatherService } from '../../services/weather.service';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { WeatherService } from '../../services/weather.service';
 
 @Component({
-  selector: 'app-weather',
+  selector: 'app-home',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
-  templateUrl: './weather.component.html',
-  styleUrl: './weather.component.scss',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
 })
-export class WeatherComponent implements OnInit {
+export class HomeComponent implements OnInit {
   weatherData: any;
   lat: number = 0;
   lon: number = 0;
@@ -24,7 +24,7 @@ export class WeatherComponent implements OnInit {
   ngOnInit(): void {
     this.getCurrentLocation(); // pega a localizacao inicial
     /* setInterval(() => {
-      this.updateWeather(); // atualiza o clima a cada 15s
+      this.updateWeather(); // atualiza o clima a cada 15s 15000
     }, 15000); */
   }
 
@@ -65,6 +65,7 @@ export class WeatherComponent implements OnInit {
     if (this.city.trim() !== '') {
       this.weatherService.getWeatherByCity(this.city).subscribe(
         (data) => {
+          console.log(data);
           this.weatherData = data;
           this.useCurrentLocation = false; // indica que estamos usando a cidade pesquisada
         },
@@ -88,9 +89,11 @@ export class WeatherComponent implements OnInit {
 
   // dispara a funcao loadWeatherByCity ao submeter a pesquisa
   onSearch(): void {
-    if (this.city.trim() !== '') {
+    /* if (this.city.trim() !== '') {
       this.loadWeatherByCity(); // Busca o clima da cidade
       this.city = ''; // Limpa o campo de pesquisa após a busca
-    }
+    } */
+
+    this.loadWeatherByCity();
   }
 }
