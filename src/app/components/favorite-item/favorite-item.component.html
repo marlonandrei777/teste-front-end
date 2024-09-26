@@ -1,0 +1,10 @@
+<div class="card">
+  <h3>{{ favorite.name }}</h3>
+  <p>Temperatura: {{ favorite.temp }}°C</p>
+  <p>Umidade: {{ favorite.humidity }}%</p>
+  <p>Vento: {{ favorite.wind }}m/s</p>
+  <p>Previsão de chuva: {{ favorite.description }}</p>
+
+  <!-- botao remover dos favoritos -->
+  <button (click)="onRemove()">Remover dos favoritos</button>
+</div>

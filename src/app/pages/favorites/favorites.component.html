@@ -1,1 +1,7 @@
-<p>favorites works!</p>
+<app-favorites-list
+  *ngIf="favorites.length > 0"
+  [favorites]="favorites"
+  (remove)="removeFavorite($event)"
+/>
+
+<app-no-favorites *ngIf="favorites.length === 0" />

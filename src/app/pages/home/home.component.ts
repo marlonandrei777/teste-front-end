@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { WeatherService } from '../../services/weather.service';
+import { FavoritesService } from '../../services/favorites.service';
+import { WeatherData } from '../../models/weather';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -12,20 +15,42 @@ import { WeatherService } from '../../services/weather.service';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  weatherData: any;
+  weatherData!: WeatherData;
   lat: number = 0;
   lon: number = 0;
   city: string = '';
   errorMessage: string = '';
   useCurrentLocation: boolean = true;
 
-  constructor(private weatherService: WeatherService) {}
+  constructor(
+    private weatherService: WeatherService,
+    private favoritesService: FavoritesService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.getCurrentLocation(); // pega a localizacao inicial
     /* setInterval(() => {
       this.updateWeather(); // atualiza o clima a cada 15s 15000
     }, 15000); */
+  }
+
+  // adicionar a cidade atual aos favoritos
+  addToFavorites(): void {
+    const favoriteCity = {
+      name: this.weatherData.name,
+      temp: this.weatherData.main.temp,
+      humidity: this.weatherData.main.humidity,
+      wind: this.weatherData.wind.speed,
+      description: this.weatherData.weather[0].description,
+    };
+
+    // armazena no servico
+    this.favoritesService.addFavorite(favoriteCity);
+
+    this.toastr.success(
+      `${favoriteCity.name} foi adicionado(a) aos favoritos!`
+    );
   }
 
   // metodo para pegar a localizacao atual do navegador
@@ -93,7 +118,6 @@ export class HomeComponent implements OnInit {
       this.loadWeatherByCity(); // Busca o clima da cidade
       this.city = ''; // Limpa o campo de pesquisa após a busca
     } */
-
     this.loadWeatherByCity();
   }
 }
