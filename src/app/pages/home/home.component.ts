@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { WeatherService } from '../../services/weather.service';
 import { FavoritesService } from '../../services/favorites.service';
 import { WeatherData } from '../../models/weather';
 import { ToastrService } from 'ngx-toastr';
-
+import { AngularSvgIconModule } from 'angular-svg-icon';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, AngularSvgIconModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -93,6 +93,7 @@ export class HomeComponent implements OnInit {
           console.log(data);
           this.weatherData = data;
           this.useCurrentLocation = false; // indica que estamos usando a cidade pesquisada
+          this.errorMessage = '';
         },
         (error) => {
           console.error('Erro ao obter os dados de clima pela cidade:', error);

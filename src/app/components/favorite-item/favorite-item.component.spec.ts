@@ -31,7 +31,7 @@ describe('FavoriteItemComponent', () => {
   });
 
   // verifica se o componente foi criado com sucesso
-  it('should create', () => {
+  it('tem que ser criado', () => {
     expect(component).toBeTruthy();
   });
 
