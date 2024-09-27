@@ -16,7 +16,7 @@ describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
   let weatherServiceSpy: jasmine.SpyObj<WeatherService>;
   let favoritesServiceSpy: jasmine.SpyObj<FavoritesService>;
-  let toastrServiceSpy: jasmine.SpyObj<ToastrService>; // adicionando o mock do ToastrService
+  let toastrServiceSpy: jasmine.SpyObj<ToastrService>; // adicionando o mock do toastrservice
 
   beforeEach(async () => {
     weatherServiceSpy = jasmine.createSpyObj('WeatherService', [
@@ -75,7 +75,7 @@ describe('HomeComponent', () => {
     expect(cityName.textContent).toContain('Belém');
     expect(weatherServiceSpy.getWeatherByCity).toHaveBeenCalled();
 
-    /* expect(component).toBeTruthy(); */
+    expect(component).toBeTruthy();
   });
 
   it('tem que adicionar a cidade aos favoritos', () => {
