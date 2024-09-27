@@ -42,12 +42,11 @@ describe('WeatherService', () => {
       expect(data.main.temp).toBe(29);
     });
 
-    // simula resposta da api
     const req = httpMock.expectOne((request) =>
       request.url.includes('lat=22.90278&lon=43.2075')
     );
     expect(req.request.method).toBe('GET');
-    req.flush(fakeWeatherData);
+    req.flush(fakeWeatherData); // simula resposta da api
   });
 
   it('tem que obter o clima por cidade', () => {
