@@ -36,7 +36,28 @@
         background: #117af1;
       }
     }
+
+    @media (max-width: 1144px) {
+      justify-content: center;
+    }
   }
+
+  @media (max-width: 1144px) {
+    width: 60rem;
+  }
+
+  @media (max-width: 852px) {
+    width: 50rem;
+  }
+
+  @media (max-width: 734px) {
+    width: 40rem;
+  }
+
+  @media (max-width: 624px) {
+    width: 30rem;
+  }
+
 }
 
 .content-container {
