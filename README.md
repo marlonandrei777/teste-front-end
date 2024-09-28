@@ -32,6 +32,7 @@ Possuindo campo de busca por cidade, e uma pagina de favoritos.
 ## ➕	Adicionais
 - Cidades favoritas armazenadas no localStorage
 - Testes unitários
+- Responsividade
 - Padrão de Commits
 - Readme
 - Versionamento de código utilizando Git
