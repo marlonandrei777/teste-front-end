@@ -19,7 +19,7 @@ Possuindo campo de busca por cidade, e uma pagina de favoritos.
 
 ✅ Carregar a sua localização<br>
 ✅ Possibilitar buscar a localização desejada<br>
-✅ Mostrar informações de clima como temperatura, umidade, vento, previsãode chuvas<br>
+✅ Mostrar informações de clima como temperatura, umidade, vento, previsão de chuvas<br>
 ✅ Deve também mostrar os alertas, caso existam no retorno da API<br>
 ✅ Deve ser possível adicionar/remover locais aos favoritos para acesso rápido<br>
 ✅ Verificar o conteúdo carregado da API. de 15 em 15 segundo pra fazer uma nova chamada e atualizar o estado de tela com os dados recebidos<br>
