@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HomeComponent } from './home.component';
 import { WeatherService } from '../../services/weather.service';
 import { FavoritesService } from '../../services/favorites.service';
@@ -10,6 +9,7 @@ import { By } from '@angular/platform-browser';
 import { importProvidersFrom } from '@angular/core';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { SvgIconRegistryService, SvgLoader } from 'angular-svg-icon';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -34,8 +34,10 @@ describe('HomeComponent', () => {
         provideRouter([]), // substituicao RouterTestingModule por provideRouter
         provideHttpClient(),
         provideHttpClientTesting(),
+        SvgIconRegistryService,
+        SvgLoader,
         importProvidersFrom(
-          // Prover ToastrModule
+          // provider ToastrModule
           ToastrModule.forRoot({
             timeOut: 3000,
             positionClass: 'toast-top-right',
@@ -71,7 +73,7 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
 
     // alterar a fonte dps
-    const cityName = fixture.debugElement.query(By.css('h1')).nativeElement;
+    const cityName = fixture.debugElement.query(By.css('p')).nativeElement;
     expect(cityName.textContent).toContain('Belém');
     expect(weatherServiceSpy.getWeatherByCity).toHaveBeenCalled();
 
@@ -79,7 +81,7 @@ describe('HomeComponent', () => {
   });
 
   it('tem que adicionar a cidade aos favoritos', () => {
-    const dummyWeatherData = {
+    const fakeWeatherData = {
       name: 'Belém',
       main: { temp: 22, humidity: 60 },
       wind: { speed: 4 },
@@ -87,19 +89,16 @@ describe('HomeComponent', () => {
     };
 
     const expectedFavoriteCity = {
-      name: dummyWeatherData.name,
-      temp: dummyWeatherData.main.temp,
-      humidity: dummyWeatherData.main.humidity,
-      wind: dummyWeatherData.wind.speed,
-      description: dummyWeatherData.weather[0].description,
+      name: fakeWeatherData.name,
+      temp: fakeWeatherData.main.temp,
+      humidity: fakeWeatherData.main.humidity,
+      wind: fakeWeatherData.wind.speed,
+      description: fakeWeatherData.weather[0].description,
     };
 
-    component.weatherData = dummyWeatherData;
+    component.weatherData = fakeWeatherData;
 
-    const addButton = fixture.debugElement.query(
-      By.css('button:last-of-type')
-    ).nativeElement;
-    addButton.click();
+    component.addToFavorites();
 
     expect(favoritesServiceSpy.addFavorite).toHaveBeenCalledWith(
       expectedFavoriteCity

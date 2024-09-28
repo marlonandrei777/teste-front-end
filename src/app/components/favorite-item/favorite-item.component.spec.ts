@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FavoriteItemComponent } from './favorite-item.component';
 import { By } from '@angular/platform-browser';
+import { provideHttpClient } from '@angular/common/http';
+import { SvgIconRegistryService, SvgLoader } from 'angular-svg-icon';
 
 describe('FavoriteItemComponent', () => {
   let component: FavoriteItemComponent;
@@ -10,6 +11,7 @@ describe('FavoriteItemComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FavoriteItemComponent],
+      providers: [provideHttpClient(), SvgIconRegistryService, SvgLoader],
     }).compileComponents();
   });
 

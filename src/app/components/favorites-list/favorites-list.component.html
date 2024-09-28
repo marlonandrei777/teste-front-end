@@ -1,11 +1,25 @@
-<div *ngIf="favorites.length > 0">
+<div class="container-icon">
+  <div>
+    <svg-icon
+      src="star.svg"
+      [svgStyle]="{ 'width.px': 40, 'height.px':40, 'color': '#1f82f2' }"
+      alt="icone Estrela"
+    />
+  </div>
+
+  <strong>FAVORITOS - </strong>
   <p>{{favorites.length}}</p>
 
-  <app-favorite-item
-    *ngFor="let favorite of favorites; let i = index"
-    [favorite]="favorite"
-    [index]="i"
-    (remove)="onRemove(i)"
-  />
 </div>
- <!-- div = li -->
+<ul *ngIf="favorites.length > 0">
+  <li>
+    <app-favorite-item
+      *ngFor="let favorite of favorites; let i = index"
+      [favorite]="favorite"
+      [index]="i"
+      (remove)="onRemove(i)"
+    />
+  </li>
+</ul>
+
+

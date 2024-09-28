@@ -1,41 +1,74 @@
 <div class="container">
-  <p>sdsdss</p>
+  <nav>
+    <a routerLink="/favorites" title="Ir a página de favoritos">
+      <svg-icon
+        src="folder-favorites.svg"
+        [svgStyle]="{ 'width.px':30, 'height.px':30 }"
+        alt="icone de estrela"
+      />
+      Ir aos favoritos
+    </a>
+  </nav>
 
-  <svg-icon
-    src="wind.svg"
-    [svgStyle]="{ 'width.px':40, 'height.px':40 }"
-    alt="icone de vento"
-  />
-  <svg-icon
-    src="humidity.svg"
-    [svgStyle]="{ 'width.px':40, 'height.px':40 }"
-    alt="icone de vento"
-  />
+  <div class="content-container">
+    <div class="search-container">
+      <input type="text"[(ngModel)]="city" (keyup.enter)="onSearch()" placeholder="Busque uma Cidade">
+      <button (click)="onSearch()">
+        <svg-icon
+          src="search.svg"
+          [svgStyle]="{ 'width.px': 24, 'height.px':24 }"
+          alt="icone de lupa"
+        />
+      </button>
+    </div>
 
-  <div>
-    <input type="text"[(ngModel)]="city" (keyup.enter)="onSearch()" placeholder="Busque uma Cidade">
-    <button (click)="onSearch()">Pesquisar</button>
-    <nav>
-      <a routerLink="/favorites">Ir aos favoritos</a>
-    </nav>
-    <button (click)="addToFavorites()">Adicionar aos favoritos</button>
+    <div *ngIf="errorMessage" class="error-container">
+      <p>{{ errorMessage }}</p>
+    </div>
 
+    <div class="data-weather-container" *ngIf="weatherData">
+      <span>{{ weatherData.main.temp }}°C</span>
+
+      <div class="data-weather-gap">
+        <small>{{ weatherData.weather[0].description }}</small>
+        <p>{{ weatherData.name }}</p>
+
+        <div class="humidity-wind-data-container">
+          <div class="weather-container">
+            <svg-icon
+              src="humidity.svg"
+              [svgStyle]="{ 'width.px': 46, 'height.px':46 }"
+              alt="icone de humidade"
+            />
+
+            <div>
+              <strong>{{ weatherData.main.humidity }}%</strong>
+              <small>Humidade</small>
+            </div>
+          </div>
+
+          <div class="weather-container">
+            <svg-icon
+              src="wind.svg"
+              [svgStyle]="{ 'width.px': 46, 'height.px':46 }"
+              alt="icone de vento"
+            />
+
+            <div>
+              <strong>{{ weatherData.wind.speed }} m/s</strong>
+              <small>Velocidade do vento</small>
+            </div>
+          </div>
+        </div>
+
+        <button (click)="addToFavorites()" title="Adicionar cidade aos favoritos">
+          <svg-icon
+            src="star.svg"
+            [svgStyle]="{ 'width.px': 30, 'height.px':30 }"
+            alt="icone de favoritos"
+          />
+        </button>
+      </div>
+    </div>
   </div>
-
-  <!-- Mensagem de erro -->
-  <div *ngIf="errorMessage">
-    <p>{{ errorMessage }}</p>
-  </div>
-
-  <div *ngIf="weatherData">
-    <h2>Clima Atual</h2>
-    <h1>{{ weatherData.name }}</h1>
-    <p>Temperatura: {{ weatherData.main.temp }}°C</p>
-    <p>Umidade: {{ weatherData.main.humidity }}%</p>
-    <p>Vento: {{ weatherData.wind.speed }}m/s</p>
-
-    <p>Previsão de chuva: {{ weatherData.weather[0].description }}</p>
-    <!--<p *ngIf="weatherData.alerts">Alertas: {{ weatherData.alerts[0].description }}</p> -->
-  </div>
-
 </div>

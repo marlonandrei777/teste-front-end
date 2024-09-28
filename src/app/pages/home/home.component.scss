@@ -1,7 +1,159 @@
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: -webkit-linear-gradient(310deg, hsl(210, 90%, 80%) -5%, hsl(212, 93%, 49%) 100%);
 
-  background: var(--background);
+  height: 50rem;
+  width: 80rem;
+
+  border-radius: 50px;
+
+  nav {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    padding: 4rem 4rem 0rem;
+
+    a {
+      background: #7fbaf8;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+
+      font-size: medium;
+
+      padding: 1rem;
+      border-radius: 50px;
+
+      transition: background 0.2s;
+
+      svg-icon {
+        display: flex;
+      }
+
+      &:hover {
+        background: #117af1;
+      }
+    }
+  }
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 72px;
+
+  .search-container {
+    background: var(--white);
+    border-radius: 50px;
+
+    height: 3.4rem;
+    width: 28rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0rem 1rem;
+
+    input {
+      width: 90%;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      background: none;
+      border: none;
+
+      svg-icon {
+        display: flex;
+      }
+    }
+  }
+
+  .error-container {
+    p {
+      color: var(--red-error);
+    }
+  }
+
+  .data-weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+
+    span {
+      font-size: 7rem;
+      font-weight: 100;
+    }
+
+    .data-weather-gap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1.4rem;
+
+      small {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 1.6rem;
+      }
+
+      .humidity-wind-data-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+
+        .weather-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.2rem;
+
+          svg-icon {
+            display: flex;
+          }
+
+          div {
+            display: flex;
+            flex-direction: column;
+
+            strong {
+              font-size: 1.6rem;
+              font-weight: 500;
+            }
+          }
+
+        }
+      }
+
+      button {
+        height: 4rem;
+        width: 4rem;
+        background: #7fbaf8;
+        border: none;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50px;
+
+        transition: background 0.2s;
+
+        &:hover {
+          background: #117af1;
+        }
+      }
+    }
+  }
 }

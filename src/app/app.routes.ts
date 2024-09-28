@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-//Components
+// components
 import { HomeComponent } from './pages/home/home.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 

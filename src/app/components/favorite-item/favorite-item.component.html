@@ -1,10 +1,28 @@
 <div class="card">
-  <h3>{{ favorite.name }}</h3>
-  <p>Temperatura: {{ favorite.temp }}°C</p>
-  <p>Umidade: {{ favorite.humidity }}%</p>
-  <p>Vento: {{ favorite.wind }}m/s</p>
-  <p>Previsão de chuva: {{ favorite.description }}</p>
+  <div class="weather-data-gap">
+    <p>{{ favorite.temp }}°C</p>
+    <span>{{ favorite.description }}</span>
+  </div>
 
-  <!-- botao remover dos favoritos -->
-  <button (click)="onRemove()">Remover dos favoritos</button>
+  <h2>{{ favorite.name }}</h2>
+
+  <div class="weather-data-gap">
+    <p>{{ favorite.humidity }}%</p>
+    <span>Humidade</span>
+  </div>
+
+  <div class="weather-data-gap">
+    <p>{{ favorite.wind }}m/s</p>
+    <span>Velocidade do vento</span>
+  </div>
+
+  <!-- botao remover cidade dos favoritos -->
+  <button (click)="onRemove()" title="Deletar cidade">
+    <svg-icon
+      src="trash.svg"
+      [svgStyle]="{ 'width.px': 26, 'height.px':26 }"
+      alt="icone de lupa"
+    />
+  </button>
 </div>
+

@@ -1,0 +1,33 @@
+.container-icon  {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  div {
+    height: 4rem;
+    width: 4rem;
+    background: #1f82f2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50px;
+  }
+
+  display: flex;
+  gap: 1rem;
+
+  strong, p {
+    color: #1f82f2;
+    font-size: 2rem;
+  }
+}
+
+ul {
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

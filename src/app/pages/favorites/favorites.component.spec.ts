@@ -1,8 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FavoritesComponent } from './favorites.component';
+import { SvgIconRegistryService, SvgLoader } from 'angular-svg-icon';
 import { FavoritesService } from '../../services/favorites.service';
 import { By } from '@angular/platform-browser';
+import { provideHttpClient } from '@angular/common/http';
 
 describe('FavoritesComponent', () => {
   let component: FavoritesComponent;
@@ -17,7 +18,15 @@ describe('FavoritesComponent', () => {
 
     await TestBed.configureTestingModule({
       imports: [FavoritesComponent],
-      providers: [{ provide: FavoritesService, useValue: favoritesServiceSpy }], // mock do favorite
+      providers: [
+        {
+          provide: FavoritesService,
+          useValue: favoritesServiceSpy,
+        },
+        provideHttpClient(),
+        SvgIconRegistryService,
+        SvgLoader,
+      ], // mock do favorite
     }).compileComponents();
   });
 

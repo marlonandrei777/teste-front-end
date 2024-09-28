@@ -12,7 +12,7 @@ export class WeatherService {
 
   constructor(private http: HttpClient) {}
 
-  // método que pega o clima por coordenadas
+  // metodo que pega o clima por coordenadas
   getWeather(lat: number, lon: number): Observable<WeatherData> {
     return this.http.get<WeatherData>(
       `${this.apiUrl}?lat=${lat}&lon=${lon}&lang=pt_br&appid=${this.apiKey}&units=metric`

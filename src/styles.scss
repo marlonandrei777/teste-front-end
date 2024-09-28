@@ -11,15 +11,7 @@
 :root {
   --white: #fff;
   --background: #3069a7;
-  --gray-line: ######;
-  --text: ######;
-  --text-highlight: ######;
-  --title: ######;
-  --red: ######;
-  --green: ######;
-  --blue: ######;
-  --blue-dark: ######;
-  --blue-twitter: ######;
+  --red-error: #FF4C4C;
 }
 
 // acessibilida !IMPORTANT!
@@ -38,7 +30,6 @@ html {
 }
 
 body {
-  /* background: #####; */
   color: var(--white);
   -webkit-font-smoothing: antialiased;
 }
