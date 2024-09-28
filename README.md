@@ -8,7 +8,7 @@
   <a href="https://github.com/marlonandrei777/teste-front-end/blob/main/LICENSE.md"><img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=0046FF&labelColor=000000"></a>
 </p>
 
-![](.github/niuco.png)
+![](.github/weather.png)
 
 ## 💻 Projeto
 
