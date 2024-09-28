@@ -8,7 +8,7 @@
   <a href="https://github.com/marlonandrei777/teste-front-end/blob/main/LICENSE.md"><img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=0046FF&labelColor=000000"></a>
 </p>
 
-![](.github/niuco.png)
+![](.github/weather.png)
 
 ## 💻 Projeto
 
@@ -19,7 +19,7 @@ Possuindo campo de busca por cidade, e uma pagina de favoritos.
 
 ✅ Carregar a sua localização<br>
 ✅ Possibilitar buscar a localização desejada<br>
-✅ Mostrar informações de clima como temperatura, umidade, vento, previsãode chuvas<br>
+✅ Mostrar informações de clima como temperatura, umidade, vento, previsão de chuvas<br>
 ✅ Deve também mostrar os alertas, caso existam no retorno da API<br>
 ✅ Deve ser possível adicionar/remover locais aos favoritos para acesso rápido<br>
 ✅ Verificar o conteúdo carregado da API. de 15 em 15 segundo pra fazer uma nova chamada e atualizar o estado de tela com os dados recebidos<br>
